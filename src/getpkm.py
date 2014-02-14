@@ -85,7 +85,8 @@ def getpkm():
                         filename += i
             filename += '.pkm'
             save(filename, decrypt)
-            statread(decrypt)
+            cpath = 'in-game, saved to %s' % filename
+            statread(decrypt, cpath)
             sent = True
 
         m = hashlib.sha1()
