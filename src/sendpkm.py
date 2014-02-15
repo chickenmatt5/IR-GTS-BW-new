@@ -30,6 +30,9 @@ def sendpkm():
             print 'Invalid file name, try again'
             continue
         
+    sendingpkm(path)
+
+def sendingpkm(path):       
     with open(path, 'rb') as f:
         pkm = f.read()
 
