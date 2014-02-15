@@ -1,0 +1,17 @@
+"MEW" (2014-02-15 09:31:19 from Pokemon\MEW.pkm)
+    Lv 50  Mew (Genderless)
+    Nature: Hasty,  Ability: Synchronize
+
+    Game of origin: Leaf Green, PID: 3673363011
+    OT: MYSTRY,  ID: 06930,  Secret ID: 00000
+    Holding: Nothing,  Happiness: 255
+    Hidden Power: Ghost-type, 70 Base Power
+
+    Attacks: Metronome    Transform   
+             AncientPower Psychic     
+
+    IVs: HP  30, Atk  30, Def  31, SpA  31, SpD  15, Spe  30
+    EVs: HP   4, Atk  84, Def   2, SpA  18, SpD   0, Spe   4, Total 112
+
+================================================================================
+
