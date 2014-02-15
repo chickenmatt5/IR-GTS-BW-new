@@ -18,6 +18,7 @@ from src.pokehaxlib import initServ
 from src.getpkm import getpkm
 from src.sendpkm import sendpkm
 from src.stats import statana
+from src.pokecheck import *
 from platform import system
 from sys import argv, exit
 from time import sleep
@@ -64,6 +65,8 @@ while True:
     print 'r - receive Pokemon from game'
     print 'm - receive multiple Pokemon from game'
     print 'a - analyze pkm file'
+    print 'd - download and send a pkm from Pokecheck.org to game'
+    print 'p - search Pokecheck.org for pkm file'
     print 'q - quit\n'
     option = raw_input().strip().lower()
 
@@ -75,6 +78,8 @@ while True:
             try: getpkm()
             except KeyboardInterrupt: break
     elif option.startswith('a'): statana()
+    elif option.startswith('d'): pcdownload()
+    elif option.startswith('p'): pcsearch()
     elif option.startswith('q'):
         print 'Quitting program'
         break
