@@ -65,7 +65,7 @@ while True:
     print 'r - receive Pokemon from game'
     print 'm - receive multiple Pokemon from game'
     print 'a - analyze pkm file'
-    print 'd - download and send a pkm from Pokecheck,org to game'
+    print 'd - download and send a pkm from Pokecheck.org to game'
     print 'p - search Pokecheck.org for pkm file'
     print 'q - quit\n'
     option = raw_input().strip().lower()

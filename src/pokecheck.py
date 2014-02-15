@@ -3,6 +3,7 @@ from array import array
 from webbrowser import open_new
 from boxtoparty import makeparty
 from sendpkm import sendingpkm
+from time import sleep
 import os, struct, urllib
 
 def pcsearch():
@@ -38,14 +39,16 @@ def pcsearch():
     pid = hex(struct.unpack('<0s4L', open(path, 'rb').read(16))[1])[:-1]
     lvl = str(p[0x8c])
 
+    print 'Opening new browser window with search results...'
+    sleep(5)
     url = 'https://www.pokecheck.org/?p=search&pid=%s&lvf=1&lvl=%s' % (pid, lvl)
     open_new(url)
 
 def pcdownload():
-    print '\nEnter the full URL of the Pokecheck Pokemon you want to use'
+    print 'Enter the full URL of the Pokecheck Pokemon you want to upload'
     pcurl = raw_input()
     pcurl = '%s&export=Download+.pkm+file' % pcurl
-    print 'Downloading pkm as temp.pkm, will delete after upload.'
+    print '\nDownloading pkm as temp.pkm, will delete after upload.'
 
     if os.path.exists('temp.pkm'):
         print 'temp.pkm already exists, deleting...'
