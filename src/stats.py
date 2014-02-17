@@ -122,7 +122,7 @@ def statana():
     	print '\n!!!!!!!!!!!!!!!!!!!!!!!'
 	print 'Game of origin not set.'
 	print '!!!!!!!!!!!!!!!!!!!!!!!'
-    elif p[0x5f] == 18 or p[0x5f] == 19:
+    elif p[0x5f] == 24 or p[0x5f] == 25:
         print '\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
         print 'Game of origin too new (X/Y gen 6).'
         print '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
