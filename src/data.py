@@ -2071,12 +2071,12 @@ gorigin = {
      11: 'Pearl',
      12: 'Platinum',
      15: 'Colosseum/XD',
-     18: 'X',
-     19: 'Y',
      20: 'White',
      21: 'Black',
      22: 'White 2',
-     23: 'Black 2'
+     23: 'Black 2',
+     24: 'X',
+     25: 'Y'
 }
 
 
