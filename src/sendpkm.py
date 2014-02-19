@@ -15,9 +15,13 @@ def sendpkm():
     print 'Note: you must exit the GTS before sending a pkm'
     print '4th Gen Pokemon files are currently unsupported.'
     print 'Enter the path or drag the pkm file here'
+    print '(Type Back to go back)'
 
     while True:
         path = raw_input().strip()
+
+        if path == "Back" or path == "back": return
+               
         path = os.path.normpath(path)
         if system() != 'Windows':
             path = path.replace('\\', '')
@@ -38,11 +42,15 @@ def multisend():
     print 'Note: you must exit the GTS before sending each Pokemon'
     print '4th Gen Pokemon files are currently unsupported.\n'
     print 'Enter the path or drag the pkm file here, then\npress Enter, and enter another path. Finish by typing\nDone then press Enter.'
+    print '(Type Back to go back)'
 
     multi = list()
 
     while True:
         path = raw_input().strip()
+
+        if path == "Back" or path == "back": return
+        
         path = os.path.normpath(path)
         if system() != 'Windows':
             path = path.replace('\\', '')
@@ -94,7 +102,11 @@ def customqueuesend():
     
     while True:
         print 'Enter the path of the queue folder, then hit Enter'
+        print '(Type Back to go back)'
         folder = raw_input()
+
+        if folder == "Back" or folder == "back": return
+        
         print '\n'
 
         if os.path.exists(folder) == False:
