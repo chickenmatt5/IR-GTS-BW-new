@@ -73,7 +73,8 @@ def queuesend():
     qpoke = listdir('queue')
 
     for qpokes in qpoke:
-        print '\nSending %s...' % qpokes
+        print 'Sending %s...\n' % qpokes
+        qpokes = 'queue/%s' % qpokes
         sendingpkm(qpokes)
         raw_input('\nPlease exit the GTS, then press Enter to send next Pokemon\n')
 
