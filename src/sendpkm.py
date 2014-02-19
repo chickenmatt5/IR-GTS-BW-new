@@ -74,12 +74,46 @@ def queuesend():
     print '4th Gen Pokemon files are currently unsupported.\n'
     
     qpoke = listdir('queue')
-
+    qpokesf = list()
+    
     for qpokes in qpoke:
-        print 'Sending %s...\n' % qpokes
         qpokes = 'queue/%s' % qpokes
+        if os.path.exists(qpokes) and qpokes.lower().endswith('.pkm'): qpokesf.append(qpokes)
+
+    for qpokes in qpokef:
+        print 'Sending %s...\n' % qpokes
         sendingpkm(qpokes)
-        raw_input('\nPlease exit the GTS, then press Enter to send next Pokemon\n')
+        raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
+
+
+def customqueuesend():
+
+    print 'Note: you must exit the GTS before sending each Pokemon'
+    print '4th Gen Pokemon files are currently unsupported.\n'
+    
+    while True:
+        print 'Enter the path of the queue folder, then hit Enter'
+        folder = raw_input()
+        print '\n'
+
+        if os.path.exists(folder) == False:
+            print 'Invalid folder, try again\n'
+            continue
+        elif os.path.exists(folder) == True:
+            break
+
+    qpoke = listdir(folder)
+    qpokesf = list()
+    
+    for qpokes in qpoke:
+        qpokes = '%s/%s' % (folder,qpokes)
+        if os.path.exists(qpokes) and qpokes.lower().endswith('.pkm'): qpokesf.append(qpokes)
+
+    for qpokes in qpokesf:
+        print 'Sending %s...\n' % qpokes
+        sendingpkm(qpokes)
+        raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
+
 
 def sendingpkm(path):       
     with open(path, 'rb') as f:

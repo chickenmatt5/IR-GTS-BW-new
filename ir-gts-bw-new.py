@@ -16,7 +16,7 @@
 from src import gtsvar
 from src.pokehaxlib import initServ
 from src.getpkm import getpkm
-from src.sendpkm import sendpkm, multisend, queuesend
+from src.sendpkm import sendpkm, multisend, queuesend, customqueuesend
 from src.stats import statana
 from src.pokecheck import *
 from platform import system
@@ -62,8 +62,9 @@ def sendmenu():
     while True:
         print '\nChoose an option to send Pokemon:'
         print 'o - send one Pokemon to game'
-        print 'c - choose & send multiple Pokemon to game'
+        print 'm - choose & send multiple Pokemon to game'
         print 'f - send all Pokemon in queue folder'
+        print 'c - choose folder full of Pokemon to send'
         print 'd - download and send a pkm from Pokecheck.org to game'
         print 'r - return to main menu'
         print 'q - quit\n'
@@ -71,8 +72,9 @@ def sendmenu():
         soption = raw_input().strip().lower()
 
         if soption.startswith('o'): sendpkm()
-        elif soption.startswith('c'):multisend()
+        elif soption.startswith('m'):multisend()
         elif soption.startswith('f'): queuesend()
+        elif soption.startswith('c'): customqueuesend()
         elif soption.startswith('d'): pcdownload()
         elif soption.startswith('r'): break
         elif soption.startswith('q'):
