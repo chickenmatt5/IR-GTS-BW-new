@@ -7,6 +7,7 @@ from boxtoparty import makeparty
 from sys import argv, exit
 from platform import system
 from base64 import urlsafe_b64encode
+from os import listdir
 import os.path, gtsvar, hashlib
 
 def sendpkm():
@@ -31,6 +32,50 @@ def sendpkm():
             continue
         
     sendingpkm(path)
+
+def multisend():
+
+    print 'Note: you must exit the GTS before sending each Pokemon'
+    print '4th Gen Pokemon files are currently unsupported.\n'
+    print 'Enter the path or drag the pkm file here, then\npress Enter, and enter another path. Finish by pressing\nEnter without entering anything in.'
+
+    multi = '['
+
+    while True:
+        path = raw_input().strip()
+        path = os.path.normpath(path)
+        if system() != 'Windows':
+            path = path.replace('\\', '')
+
+        if path == '': break
+
+        if path.startswith('"') or path.startswith("'"):
+            path = path[1:]
+        if path.endswith('"') or path.endswith("'"):
+            path = path[:-1]
+        if os.path.exists(path) and path.lower().endswith('.pkm'):
+            multi =+ path
+        else:
+            print 'Invalid file name, try again'
+            continue
+
+    for pokes in multi:
+        print '\nSending %s...' % pokes
+        sendingpkm(pokes)
+        raw_input('\nPlease exit the GTS, then press Enter to send next Pokemon\n')
+
+
+def queuesend():
+
+    print 'Note: you must exit the GTS before sending each Pokemon'
+    print '4th Gen Pokemon files are currently unsupported.\n'
+    
+    qpoke = listdir('queue')
+
+    for qpokes in qpoke:
+        print '\nSending %s...' % qpokes
+        sendingpkm(qpokes)
+        raw_input('\nPlease exit the GTS, then press Enter to send next Pokemon\n')
 
 def sendingpkm(path):       
     with open(path, 'rb') as f:
