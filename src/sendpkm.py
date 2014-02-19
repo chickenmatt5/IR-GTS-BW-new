@@ -55,7 +55,6 @@ def multisend():
             path = path[:-1]
         if os.path.exists(path) and path.lower().endswith('.pkm'):
             multi.append(path)
-            print multi
         else:
             print 'Invalid file name, try again'
             continue
