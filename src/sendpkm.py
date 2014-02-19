@@ -47,7 +47,9 @@ def multisend():
         if system() != 'Windows':
             path = path.replace('\\', '')
 
-        if path.lower() == 'done': multisender(multi)
+        if path == 'done' or path == 'Done':
+            multisender(multi)
+            break
 
         if path.startswith('"') or path.startswith("'"):
             path = path[1:]
