@@ -71,9 +71,9 @@ def sendmenu():
         soption = raw_input().strip().lower()
 
         if soption.startswith('o'): sendpkm()
-        elif option.startswith('c'):multisend()
-        elif option.startswith('f'): queuesend()
-        elif option.startswith('d'): pcdownload()
+        elif soption.startswith('c'):multisend()
+        elif soption.startswith('f'): queuesend()
+        elif soption.startswith('d'): pcdownload()
         elif soption.startswith('r'): break
         elif soption.startswith('q'):
             print 'Quitting program'
