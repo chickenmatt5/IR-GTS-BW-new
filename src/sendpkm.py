@@ -37,9 +37,9 @@ def multisend():
 
     print 'Note: you must exit the GTS before sending each Pokemon'
     print '4th Gen Pokemon files are currently unsupported.\n'
-    print 'Enter the path or drag the pkm file here, then\npress Enter, and enter another path. Finish by pressing\nEnter without entering anything in.'
+    print 'Enter the path or drag the pkm file here, then\npress Enter, and enter another path. Finish by typing\nDone then press Enter.'
 
-    multi = '['
+    multi = list()
 
     while True:
         path = raw_input().strip()
@@ -47,17 +47,20 @@ def multisend():
         if system() != 'Windows':
             path = path.replace('\\', '')
 
-        if path == '': break
+        if path == 'done': multisender(multi)
 
         if path.startswith('"') or path.startswith("'"):
             path = path[1:]
         if path.endswith('"') or path.endswith("'"):
             path = path[:-1]
         if os.path.exists(path) and path.lower().endswith('.pkm'):
-            multi =+ path
+            multi.append(path)
+            print multi
         else:
             print 'Invalid file name, try again'
             continue
+
+def multisender(multi):
 
     for pokes in multi:
         print '\nSending %s...' % pokes
