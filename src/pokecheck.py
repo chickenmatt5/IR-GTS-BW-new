@@ -10,7 +10,7 @@ def pcsearch():
     print '\nWill search Pokecheck.org for PID and level, might\nbe multiple results with different species.\n\n'
     while True:
         print 'Enter pkm file'
-        print '(Type Back to go back)"
+        print '(Type Back to go back)'
         path = raw_input().strip()
 
         if path == "Back" or path == "back": return
