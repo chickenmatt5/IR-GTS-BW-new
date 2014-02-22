@@ -8,4 +8,4 @@ This is a resurrection/modification of the Infinite Recursion GTS project (link:
 
 ## Recently added
 
-Pokecheck features! Now you can search Pokecheck for Pokemon that may be similar (in PID and level for now) to Pokemon that you have stored in pkm files. Also, choose Pokemon from Pokecheck to send right to your game!
+Queue uploads! Mass-send Pokemon to games with a variety of options! Hopefully easier to naviagate and understand menus, and "go back" options.
