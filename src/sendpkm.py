@@ -83,14 +83,14 @@ def queuesend():
     print '4th Gen Pokemon files are currently unsupported.\n'
     
     qpoke = listdir('queue')
-    qpokesf = list()
+    qpokef = list()
     
     for qpokes in qpoke:
         qpokes = 'queue/%s' % qpokes
         if os.path.exists(qpokes) and qpokes.lower().endswith('.pkm'): qpokesf.append(qpokes)
 
-    for qpokes in qpokef:
-        print 'Sending %s...\n' % qpokes
+    for qpokesf in qpokef:
+        print 'Sending %s...\n' % qpokesf
         sendingpkm(qpokes)
         raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
 
