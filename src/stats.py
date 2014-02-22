@@ -21,7 +21,12 @@ def statread(pkm, path):
 
 def statana():
     while True:
-        path = raw_input('Enter .PKM file path:').strip()
+        print 'Enter .PKM file path'
+        print '(Type Back to go back)'
+        path = raw_input().strip()
+
+        if path == 'Back' or path == 'back':
+            return
         path = os.path.normpath(path)
         if system() != 'Windows':
             path = path.replace('\\', '')
