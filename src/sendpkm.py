@@ -71,10 +71,18 @@ def multisend():
 
 def multisender(multi):
 
+    multisize = len(multi)
+
     for pokes in multi:
         print '\nSending %s...' % pokes
         sendingpkm(pokes)
-        raw_input('\nPlease exit the GTS, then press Enter to send next Pokemon\n')
+        multisize = multisize - 1
+        if multisize >= 1:
+            raw_input('\nPlease exit the GTS, then press Enter to send next Pokemon\n')
+            continue
+        elif multisize == 0:
+            print '\nFinished sending\n'
+            return
 
 
 def queuesend():
@@ -89,10 +97,18 @@ def queuesend():
         qpokes = 'queue/%s' % qpokes
         if os.path.exists(qpokes) and qpokes.lower().endswith('.pkm'): qpokesf.append(qpokes)
 
+    qpokefsize = len(qpokef)
+
     for qpokesf in qpokef:
         print 'Sending %s...\n' % qpokesf
         sendingpkm(qpokes)
-        raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
+        qpokefsize = qpokefsize - 1
+        if qpokefsize >= 1:
+            raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
+            continue
+        elif qpokefsize == 0:
+            print '\nFinished sending\n'
+            return
 
 
 def customqueuesend():
@@ -122,10 +138,17 @@ def customqueuesend():
         qpokes = '%s/%s' % (folder,qpokes)
         if os.path.exists(qpokes) and qpokes.lower().endswith('.pkm'): qpokesf.append(qpokes)
 
+    qpokesfsize = len(qpokesf)
+
     for qpokes in qpokesf:
         print 'Sending %s...\n' % qpokes
         sendingpkm(qpokes)
-        raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
+        if qpokesfsize >= qpokesfsize - 1:
+            raw_input('\nYou must exit the GTS before sending the next Pokemon.\nHit Enter when ready.')
+            continue
+        elif qpokesfsize == 0:
+            print '\nFinished sending\n'
+            return
 
 
 def sendingpkm(path):       
