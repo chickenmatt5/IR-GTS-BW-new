@@ -18,6 +18,7 @@ from src.pokehaxlib import initServ
 from src.getpkm import getpkm
 from src.sendpkm import sendpkm, multisend, queuesend, customqueuesend
 from src.stats import statana
+from src.gbatonds import threetofour
 from src.pokecheck import *
 from platform import system
 from sys import argv, exit
@@ -38,6 +39,7 @@ while True:
     print '\nChoose:'
     print 'a - analyze pkm file'
     print 'o - continue to online mode'
+    print 'c - convert 3rd gen .pkm to 4th gen .pkm'
     print 'q - quit\n'
     print '\nPlease type your option, and press Enter\n'
     choice = raw_input().strip().lower()
@@ -46,6 +48,7 @@ while True:
     elif choice.startswith('o'):
         print '\nContinuing to online menu...\n\n'
         break
+    elif choice.startswith('c'): threetofour()
     elif choice.startswith('q'):
         print 'Quitting program'
         exit()
