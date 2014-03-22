@@ -1436,8 +1436,7 @@ pokemonindex = {
     411: 358
 }
 
-def threetofour():
-    
+def attainpkm():
     print 'Enter the path or drag the pkm file here, then\npress Enter, and enter another path. Finish by typing\nDone then press Enter.'
     print '(Type Back to go back)'
 
@@ -1462,9 +1461,26 @@ def threetofour():
     with open(path, 'rb') as f:
         pkm = f.read()
 
+    return pkm
+
+def threetofour():
+    
+    pkm = attainpkm()
+
     
     
     pkm = makends(pkm)
 
     with open('test.pkm', 'wb') as f:
         f.write(pkm)
+
+def fourtofive():
+    pkm = attainpkm()
+
+    hl = pkm[0x80:0x82]
+    pid = pkm[0x00:0x04]
+
+    if hl == 30001 and ord(pkm[0x41]) == (pid % 25): return pkm
+
+def threetofive():
+    
