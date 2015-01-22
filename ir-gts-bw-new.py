@@ -7,7 +7,7 @@
 #
 # - Infinite Recursion"
 #
-# Resurrection of the Infinite Recursion pseudo-GTS script, now with 40% more
+# Resurrection of the Infinite Recursion pseudo-GTS script, now with 80% more
 # infinite recursion! This is always a work in progress, started by Infinite
 # Recursion and LordLandon, with some code borrowed from Pokecheck.org.
 # 
@@ -18,6 +18,7 @@ from src.pokehaxlib import initServ
 from src.getpkm import getpkm
 from src.sendpkm import sendpkm, multisend, queuesend, customqueuesend
 from src.stats import statana
+from src.gbatonds import threetofour
 from src.pokecheck import *
 from platform import system
 from sys import argv, exit
@@ -34,10 +35,34 @@ if s == 'Darwin' or s == 'Linux':
 
 print "\n",gtsvar.version,"\n"
 
+def convertmenu():
+    while True:
+        print '\nChoose a conversion option:'
+        print '1 - convert 3rd gen Pokemon file to 4th gen .pkm'
+        print '2 - convert 3rd gen Pokemon file to 5th gen .pkm
+        print '3 - convert 4th gen .pkm to 5th gen .pkm'
+        print 'r - return to main menu'
+        print 'q - quit'
+        number = raw_input().strip().lower()
+
+        if number.startswith('1'): threetofour()
+        elif number.startswith('2'): threetofive()
+        elif number.startswith('3'): fourtofive()
+        elif number.startswith('r'): break
+        elif number.startswith('q'):
+            print 'Quitting program'
+            exit()
+        else:
+            print 'Invalid option, try again'
+            continue
+
+        print 'Returning to conversion menu...'
+
 while True:
     print '\nChoose:'
     print 'a - analyze pkm file'
     print 'o - continue to online mode'
+    print 'c - convert .pkm files to newer gens'
     print 'q - quit\n'
     print '\nPlease type your option, and press Enter\n'
     choice = raw_input().strip().lower()
@@ -46,6 +71,7 @@ while True:
     elif choice.startswith('o'):
         print '\nContinuing to online menu...\n\n'
         break
+    elif choice.startswith('c'): threetofour()
     elif choice.startswith('q'):
         print 'Quitting program'
         exit()
