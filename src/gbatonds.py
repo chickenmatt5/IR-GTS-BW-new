@@ -1482,5 +1482,4 @@ def fourtofive():
 
     if hl == 30001 and ord(pkm[0x41]) == (pid % 25): return pkm
 
-def threetofive():
-    
+#def threetofive():

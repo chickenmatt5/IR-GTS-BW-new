@@ -19,7 +19,7 @@ from src.getpkm import getpkm
 from src.sendpkm import sendpkm, multisend, queuesend, customqueuesend
 from src.stats import statana
 from src.gbatonds import threetofour
-from src.pokecheck import *
+#from src.pokecheck import *
 from platform import system
 from sys import argv, exit
 from time import sleep
@@ -34,12 +34,16 @@ if s == 'Darwin' or s == 'Linux':
         exit(0)
 
 print "\n",gtsvar.version,"\n"
+if gtsvar.stable == 'no':
+    print "==============================================="
+    print "EXPERIMENTAL/UNSTABLE VERSION! MIGHT HAVE BUGS!"
+    print "===============================================\n"
 
 def convertmenu():
     while True:
         print '\nChoose a conversion option:'
         print '1 - convert 3rd gen Pokemon file to 4th gen .pkm'
-        print '2 - convert 3rd gen Pokemon file to 5th gen .pkm
+        print '2 - convert 3rd gen Pokemon file to 5th gen .pkm'
         print '3 - convert 4th gen .pkm to 5th gen .pkm'
         print 'r - return to main menu'
         print 'q - quit'
@@ -91,7 +95,7 @@ def sendmenu():
         print 'm - choose & send multiple Pokemon to game'
         print 'f - send all Pokemon in queue folder'
         print 'c - choose folder full of Pokemon to send'
-        print 'd - download and send a pkm from Pokecheck.org to game'
+        #print 'd - download and send a pkm from Pokecheck.org to game'
         print 'r - return to main menu'
         print 'q - quit\n'
         print '\nPlease type your option, and press Enter\n'
@@ -101,7 +105,7 @@ def sendmenu():
         elif soption.startswith('m'):multisend()
         elif soption.startswith('f'): queuesend()
         elif soption.startswith('c'): customqueuesend()
-        elif soption.startswith('d'): pcdownload()
+        #elif soption.startswith('d'): pcdownload()
         elif soption.startswith('r'): break
         elif soption.startswith('q'):
             print 'Quitting program'
@@ -120,7 +124,7 @@ while True:
     print 'r - receive Pokemon from game'
     print 'm - receive multiple Pokemon from game'
     print 'a - analyze pkm file'
-    print 'p - search Pokecheck.org for pkm file'
+    #print 'p - search Pokecheck.org for pkm file'
     print 'q - quit\n'
     print '\nPlease type your option, and press Enter\n'
     option = raw_input().strip().lower()
@@ -133,7 +137,7 @@ while True:
             try: getpkm()
             except KeyboardInterrupt: break
     elif option.startswith('a'): statana()
-    elif option.startswith('p'): pcsearch()
+    #elif option.startswith('p'): pcsearch()
     elif option.startswith('q'):
         print 'Quitting program'
         exit()
